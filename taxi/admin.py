@@ -4,9 +4,6 @@ from django.contrib.auth.admin import UserAdmin
 from taxi.models import Manufacturer, Driver, Car
 
 
-admin.site.register(Manufacturer)
-
-
 @admin.register(Driver)
 class DriverAdmin(admin.ModelAdmin):
     list_display = UserAdmin.list_display + ("license_number",)
@@ -20,3 +17,6 @@ class DriverAdmin(admin.ModelAdmin):
 class CarAdmin(admin.ModelAdmin):
     search_fields = ["model", ]
     list_filter = ["manufacturer", ]
+
+
+admin.site.register(Manufacturer)
